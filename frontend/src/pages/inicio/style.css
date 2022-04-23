@@ -1,0 +1,109 @@
+body{
+    margin: 0;
+}
+
+#sectionintro{
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 100px);
+    align-items: center;
+}
+#introducao {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex: 1;
+}
+#introducao h1{
+    font-size:55px;
+    margin: 0;
+    color: #5572D9;
+}
+
+#sectionbox{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+#box{
+    display: flex;
+    width: 100%;
+    padding: 20px 40px 40px 40px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 20px;
+    margin-bottom: 100px;
+}
+#box p{
+    line-height: 1.5;
+}
+
+
+
+/* EFEITOS */
+.effect-wrap .effect{
+	position: absolute;
+	z-index: -1;
+}
+.effect-1{
+    position: absolute;
+	width: 30px;
+	height: 30px;
+	border: 4px solid #8a49ff;
+	bottom: 10%;
+	right: 10%;
+	animation: spin 10s linear infinite ;
+}
+.effect-2{
+    position: absolute;
+	left: 3%;
+	bottom: 10%;
+	width: 40px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	animation: topBounce 3s ease-in-out infinite;
+}
+.effect-2 div{
+	height: 3px;
+	width: 3px;
+	background-color: #ff9c07;
+	margin: 0 3px 8px;
+}
+.effect-4{
+    position: absolute;
+	border-top: 30px solid transparent;
+	border-left: 30px solid #06d79c;
+	top: 25%;
+    left: 40%;
+	animation: spin 15s linear infinite;
+}
+.effect-4::before{
+	content: '';
+	border-top: 30px solid transparent;
+	border-left: 30px solid #06d79c;
+	position: absolute;
+	opacity: 0.5;
+	left: -35px;
+	top: -25px;
+
+}
+
+@keyframes spin{
+	0%{
+		transform: rotate(0deg) ;
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes topBounce{
+	0%{
+		transform: translateY(0);
+	}
+	50%{
+		transform: translateY(25px);
+	}
+}
+/* FIM EFEITOS */

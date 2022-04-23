@@ -1,0 +1,21 @@
+
+
+#row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+#row > div{
+    display: flex;
+    flex: 1;
+}
+
+#social{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
