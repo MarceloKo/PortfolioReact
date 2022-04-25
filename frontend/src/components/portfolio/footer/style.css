@@ -1,5 +1,11 @@
 
+#footer{
+    display: flex;
+    justify-content: center;
+    background: rgb(24, 1, 37);
+    width: 100%;
 
+}
 #row{
     display: flex;
     justify-content: space-between;
@@ -18,4 +24,16 @@
     display: flex;
     justify-content: flex-end;
     gap: 10px;
+}
+#social a:hover{
+    transition: all 0.3s ease;
+    transform: scale(1.2);
+    
+}
+
+@media(max-width:550px){
+    #row{
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
 }

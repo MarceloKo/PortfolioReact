@@ -1,16 +1,20 @@
-import { BrowserRouter,Routes,Route } from "react-router-dom";
+import { Routes,Route } from "react-router-dom";
+import React from "react";
+
 import Inicio from "./pages/inicio";
 import Sobre from "./pages/sobre";
+import Projetos from "./pages/projetos";
 
-const Routess = ()=> {
+const MainRoutes = ()=> {
     return(
-        <BrowserRouter>
             <Routes>
                 <Route path="/"  element={<Inicio/>} />
                 <Route path="/sobre"  element={<Sobre/>} />
+                <Route path="/projetos"  element={<Projetos/>} />
+                {/* <Route path="/login"  element={<Sobre/>} />  */}
             </Routes>
-        </BrowserRouter>
+        
     )
 }
 
-export default Routess;
+export default MainRoutes;

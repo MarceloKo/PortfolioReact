@@ -8,6 +8,7 @@ body{
     height: calc(100vh - 100px);
     align-items: center;
 }
+
 #introducao {
     display: flex;
     flex-direction: column;
@@ -17,13 +18,17 @@ body{
 #introducao h1{
     font-size:55px;
     margin: 0;
-    color: #5572D9;
+}
+#introducao h1 span{
+    color: #8C52FF;
+
 }
 
 #sectionbox{
     display: flex;
     flex-direction: column;
     width: 100%;
+	z-index: 1;
 }
 #box{
     display: flex;
@@ -33,6 +38,7 @@ body{
     background: rgba(255, 255, 255, 0.04);
     border-radius: 20px;
     margin-bottom: 100px;
+
 }
 #box p{
     line-height: 1.5;
@@ -107,3 +113,22 @@ body{
 	}
 }
 /* FIM EFEITOS */
+
+
+
+@media(max-width:850px){
+	#sectionintro{
+		flex-direction: column-reverse;
+	}
+	#banner img{
+		max-width: 400px;
+		width: 100%;
+		padding: 0 50px;
+		box-sizing: border-box;
+		height: auto;
+		margin-top: 50px;
+	}
+	.effect-2{
+		bottom: -25%;
+	}
+}

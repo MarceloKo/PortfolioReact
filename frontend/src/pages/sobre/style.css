@@ -1,0 +1,157 @@
+section{
+    margin-bottom: 70px;
+}
+#about{
+    display: flex;
+    width: 100%;
+    margin-top: 100px;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+}
+#aboutme {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    min-width: 300px;
+    margin-right: 50px;
+    
+}
+#aboutme h1{
+    font-size:30px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+#aboutme h1 span{
+    color: #8C52FF;
+
+}
+#banner{
+    flex: 1;
+}
+#container-skill{
+    display: flex;
+    flex: 1;
+    height: 100%;
+}
+#container-skill ul{
+    display: flex;
+    width: 100%;
+    gap: 31px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    padding: 0;
+    
+}
+#container-skill ul li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    min-width: 125px;
+    height:100px;
+    padding: 50px;
+    border: 3px solid #5400FF;
+}
+#container-skill ul li:hover{
+    transition: all 0.3s ease;
+    transform: scale(1.01);
+    -webkit-box-shadow: 0px 0px 19px 1px rgba(84,0,255,0.4); 
+    box-shadow: 0px 0px 19px 1px rgba(84,0,255,0.4);
+}
+
+#container-experience {
+    display: flex;
+    width: 100%;
+}
+#container-experience ul{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+#container-experience ul li{
+    display: flex;
+    width: 100%;
+    height: 200px;
+    background: rgba(81, 47, 131, 0.1);
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 20px 40px;
+    margin-bottom: 20px;
+}
+
+#container-experience ul li:hover{
+    transition: all 0.3s ease;
+    -webkit-box-shadow: 0px 0px 19px 1px rgba(84,0,255,0.2); 
+    box-shadow: 0px 0px 19px 1px rgba(84,0,255,0.2);
+}
+
+
+
+#headerProfissional{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    
+}
+#headerProfissional p{
+    margin: 5px 0;
+}
+#descriptionProfissional{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 2;
+}
+
+.barraTransversal{
+    display:flex;
+    margin: 0 100px;
+    width: 5px;
+    height: 100%;
+    background: #622CCE;
+    transform: rotate(10deg);
+    
+}
+
+@media(max-width:850px){
+
+    #about{
+        flex-direction: column-reverse;
+        align-items: center;
+        margin: 10px 0 60px 0;
+        flex-wrap: wrap;
+    }
+    #aboutme{
+        margin-right: 0;
+        margin-top: 20px;
+    }
+    .barraTransversal{
+        margin: 0 20px;
+    }
+}
+
+@media (max-width:774px) {
+    
+    #container-skill ul{
+       justify-content: center;
+       align-items: center;
+    }
+   
+}
+@media (max-width:700px){
+    #container-experience ul li{
+        flex-direction: column;
+        height: auto;
+    }
+    #headerProfissional{
+        margin-bottom: 15px;
+    }
+    #headerProfissional h3{
+        margin: 2px 0;
+    }
+    #headerProfissional p{
+        margin: 0;
+    }
+}

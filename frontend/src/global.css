@@ -1,12 +1,13 @@
 
-html{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Geneva, Tahoma, sans-serif ;
-    
-}
-h1,h2,h3,h4,p{
+
+h1,h2,h3,h4{
     color: #fff;
     font-family: Rockwell,Courier Bold,Courier,Georgia,Times,Times New Roman,serif; 
     
+}
+p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif ;
+
 }
 
 .container{

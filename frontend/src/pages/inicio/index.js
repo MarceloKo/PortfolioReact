@@ -3,11 +3,9 @@ import './style.css'
 import '../../global.css'
 import banner from '../../assets/banner.png'
 import Buttom from "../../components/buttom";
-import Portfolio from '../../components/portfolio';
 export default function Inicio() {
   return (
-    <Portfolio >
-        
+    <>
         <section id="sectionintro" className="container-content">
             <div class="effect effect-2">
               <div>
@@ -44,7 +42,7 @@ export default function Inicio() {
             <div id="introducao">
         
               <h3>Olá</h3>
-              <h1>Eu sou o Marcelo</h1>
+              <h1>Eu sou o <span>Marcelo</span></h1>
               <h3>Sou desenvolvedor junior, apaixonado por tecnologia e por programação.</h3>
               <Buttom style={{width:'150px'}}>Sobre mim</Buttom>
             </div>
@@ -66,6 +64,6 @@ export default function Inicio() {
           
         </section>
         
-    </Portfolio>
+    </>
   );
 }

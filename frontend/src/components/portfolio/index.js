@@ -3,10 +3,14 @@ import Header from "./header";
 
 export default function Portfolio({children}){
     return(
-        <div>
+        <>
+            <div className="container">
             <Header/>
             {children}
+            </div>
             <Footer/>
-        </div>
+        
+        </>
+       
     )
 }

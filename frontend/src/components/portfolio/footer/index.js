@@ -4,9 +4,9 @@ import linkedin from '../../../assets/linkedin.svg'
 
 export default function Footer() {
     return(
-        <footer id='footer'>
+        <footer id='footer' >
             <div id='row'>
-                <div>     
+                <div>  
                 </div>
                 <p>&copy; 2022 - Todos os direitos reservados</p>
                 <div id='social'>
