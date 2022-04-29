@@ -5,7 +5,7 @@ body{
 #sectionintro{
     display: flex;
     width: 100%;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 300px);
     align-items: center;
 }
 

@@ -2,6 +2,7 @@ import './style.css'
 import firstPortfolio from "../../assets/projects/firstPortfolio.png"
 export default function Projetos (){
     return(
+        <>
         <section id="section" className='container-content'>
             <div id="headerproject">
                 <h1>Projetos</h1>
@@ -37,5 +38,6 @@ export default function Projetos (){
 
             </div>
         </section>
+        </>
     )
 }

@@ -9,7 +9,7 @@ export default function Portfolio({children}){
             {children}
             </div>
             <Footer/>
-        
+            
         </>
        
     )

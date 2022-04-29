@@ -1,0 +1,58 @@
+
+#boxlogin{
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+    height: 350px;
+    border-radius: 15px;
+    background: rgba(27, 29, 32, 52%);
+    padding: 20px;
+}
+#boxlogin h1{
+    display: flex;
+    justify-content: center;
+}
+#formlogin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+#formlogin input{
+    border: none;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    max-width: 250px;
+    font-size: 17px;
+    font-weight: 500;
+    height: 30px;
+    background: none;
+    color: white;
+    border-bottom: 1px solid #fff;
+}
+#formlogin input:focus{
+    outline: none;
+    border-bottom: 1px solid #5572D9;
+}
+
+#formlogin button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 150px;
+    margin-top: 10px;
+    width: 100%;
+    cursor: pointer;
+    height: 40px;
+    border: none;
+    border-radius: 2px;
+    font-size: 17px;
+    color: #fff;
+    background: #5572D9;
+}
+
+#formlogin button:hover{
+    background: #5c80ff;
+}

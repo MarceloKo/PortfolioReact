@@ -1,0 +1,113 @@
+body{
+    font-family: Arial, Helvetica, sans-serif !important;
+
+}
+
+.dashboard{
+    width: 100%;
+    margin-bottom: 0;
+    
+}
+.menuDashboard{
+    display: flex;
+    width: 15%;
+    min-width: 100px;
+    max-width: 250px;
+    position: fixed;
+    height: 100vh;
+    background: rgb(170,208,245);
+    background: linear-gradient(0deg, rgb(128, 185, 243) 0%, rgb(97, 87, 212) 100%);
+}
+.menuDashboard ul{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: center;
+    height: 100vh;
+    list-style: none;
+    padding: 0;
+    margin: 150px 0 0 20px;
+    
+}
+.menuDashboard ul li{
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    margin-top: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+    gap: 15px;
+}
+.menuDashboard ul li::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    border-radius: 4px;
+    bottom: -5px;
+    box-shadow: inset 0 0 0 0 #7549ce;
+    transition: ease-out 0.3s;
+    outline: none;
+
+}
+.menuDashboard ul li:hover:after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    border-radius: 4px;
+    bottom: -5px;
+    box-shadow: inset 150px 0 0 0 #622CCE;
+
+}
+.headerDashboard{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding: 15px 30px;
+    box-sizing: border-box;
+    background: rgb(97, 87, 212);
+    gap: 20px;
+}
+.headerDashboard img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.bodyDashboard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background:#1B1D20 
+}
+
+
+
+
+@media (max-width:1100px) {
+    .menuDashboard ul {
+        margin: 150px 0 0 0;
+        width: 100%;
+    }
+    .menuDashboard ul li {
+        justify-content: center;
+        width: auto;
+        box-sizing: border-box;
+        padding: 0 10px;
+    }
+    .menuDashboard ul li svg{
+            font-size: 30px;
+    }
+    .menuDashboard ul li p{
+    display: none;
+    } 
+}

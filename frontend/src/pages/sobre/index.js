@@ -6,6 +6,7 @@ import javascriptlogo from '../../assets/javascriptlogo.png'
 import reactlogo from '../../assets/reactlogo.png'
 import nodelogo from '../../assets/nodelogo.png'
 import mongologo from '../../assets/mongologo.png'
+import Portfolio from "../../components/portfolio";
 
 export default function Sobre() {
   return (

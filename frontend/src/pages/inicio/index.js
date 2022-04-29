@@ -3,11 +3,12 @@ import './style.css'
 import '../../global.css'
 import banner from '../../assets/banner.png'
 import Buttom from "../../components/buttom";
+import Portfolio from '../../components/portfolio';
 export default function Inicio() {
   return (
     <>
         <section id="sectionintro" className="container-content">
-            <div class="effect effect-2">
+            <div className="effect effect-2">
               <div>
               </div>
               <div></div>
