@@ -4,7 +4,7 @@ import { useState } from "react"
 import api from "../../services/api"
 import { login } from "../../services/auth"
 import {BsArrowLeft} from "react-icons/bs"
-import Alert from "../../components/alert/alert"
+// import Alert from "../../components/alert/alert"
 export default function Login (){
     const [data,setData] = useState({})
     const navigate = useNavigate()
@@ -14,11 +14,10 @@ export default function Login (){
             response => { 
                 login(response.data.token,response.data.user._id,response.data.user.name)
                 navigate("/dashboard")
-
             }
         )
         .catch(err => {
-            <Alert message='teste' type='success'/>
+            alert(err.response.data.error)
         })
         
     }

@@ -19,7 +19,9 @@ module.exports= {
             res.status(200).json({message:'Usuário criado com sucesso!',data:response});
           
 
-        }catch{
+        }catch(error){
+        console.log(error)
+
             res.status(400).json({error:"Erro ao criar usuário!"})
         }
         

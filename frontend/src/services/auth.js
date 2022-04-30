@@ -14,3 +14,4 @@ export const logout = () => {
     localStorage.clear(ID_USUARIO);
     localStorage.clear(NOME_USUARIO);
 }
+

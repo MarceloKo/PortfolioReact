@@ -1,19 +1,15 @@
-import { BrowserRouter as Router, Route, Routes,Navigate} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import React from "react";
-
 import Inicio from "./pages/inicio";
 import Sobre from "./pages/sobre";
 import Projetos from "./pages/projetos";
 import Login from "./pages/login";
 import Dashboard from "./pages/login/dashboard";
 import Portfolio from "./components/portfolio";
-const isAuthenticated = true;
-
-const PrivateRoute = ({children, redirectTo })=>{
-    return isAuthenticated ? children : <Navigate to={redirectTo}/>
-}
+import { PrivateRoute } from "./components/PrivateRoute/privateRoute";
 
 const MainRoutes = ()=> {
+
     return(
         <Router>
             
