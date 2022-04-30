@@ -5,12 +5,12 @@ const authConfig = require('../config/auth.json')
 module.exports= {
     async store(req,res){
         try{
-            const {name,email,password} = req.body;
-            const user = {name,email,password};
-            if(!name || !email || !password){
+            const {name,login,password} = req.body;
+            const user = {name,login,password};
+            if(!name || !login || !password){
                 return res.status(400).json({error:'Preencha todos os campos!'})
             }
-            if(await User.findOne({email})){
+            if(await User.findOne({login})){
                 return res.status(400).json({error:"Usuário já cadastrado!"})
 
             }
@@ -39,8 +39,8 @@ module.exports= {
 
     async authenticate(req,res){
         try{
-            const {email,password} = req.body;
-            const user = await User.findOne({email}).select('+password');
+            const {login,password} = req.body;
+            const user = await User.findOne({login}).select('+password');
             if(!user){
                 return res.status(400).json({error:"Usuário não encontrado!"})
             }
