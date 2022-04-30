@@ -81,6 +81,20 @@ body{
     border-radius: 50%;
     margin-right: 10px;
 }
+.exit{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.exit:hover{
+    transition: all 0.1s ease-in;
+    transform: scale(1.05);
+
+}
+.exit svg{
+    font-size: 25px;
+}
 .bodyDashboard{
     display: flex;
     justify-content: center;

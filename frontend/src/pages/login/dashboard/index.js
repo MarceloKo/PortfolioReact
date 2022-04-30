@@ -2,8 +2,16 @@
 import logo  from "../../../assets/logo2.png"
 import "./style.css"
 import {HiDocumentReport} from "react-icons/hi"
+import {IoIosExit} from "react-icons/io"
 import {AiFillHome} from "react-icons/ai"
+import  {useNavigate}  from "react-router-dom"
+import {logout} from "../../../services/auth"
 export default function Dashboard (){
+    const navigate = useNavigate()
+    const handleClickLogout = () => {
+        logout()
+        navigate('/login')
+    }
     return (
         <>
             <div className="menuDashboard">
@@ -14,8 +22,9 @@ export default function Dashboard (){
             </div>
             <section className="dashboard">
                 <header className="headerDashboard">
-                    <p>Olá, Marcelo.</p>
-                    <img src={logo} alt="Logo"/>
+                    <p>Olá, {localStorage.getItem('name_user')}.</p>
+                    <p className="exit" onClick={handleClickLogout}><IoIosExit/>Sair</p>
+
                 </header>
                 <body className="bodyDashboard">
 

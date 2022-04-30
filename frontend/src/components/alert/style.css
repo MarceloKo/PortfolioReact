@@ -1,0 +1,26 @@
+.alert-error{
+    display: flex;
+    min-width: 50px;
+    min-height: 10px;
+    position: absolute;
+    padding:15px 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    background: #ff0000;
+    top: 10vh;
+}
+
+.alert-success{
+    display: flex;
+    min-width: 50px;
+    min-height: 10px;
+    position: absolute;
+    padding:15px 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    background: #00c932;
+    color: white;
+    top: 10vh;
+}

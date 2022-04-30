@@ -1,17 +1,31 @@
 import "./style.css"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
+import api from "../../services/api"
+import { login } from "../../services/auth"
+import {BsArrowLeft} from "react-icons/bs"
+import Alert from "../../components/alert/alert"
 export default function Login (){
     const [data,setData] = useState({})
     const navigate = useNavigate()
-    function handleSubmitForm(e){
+    async function handleSubmitForm(e){
         e.preventDefault()
-        console.log(data)
+        await api.post('/user/authenticate',data).then(
+            response => { 
+                login(response.data.token,response.data.user._id,response.data.user.name)
+                navigate("/dashboard")
+
+            }
+        )
+        .catch(err => {
+            <Alert message='teste' type='success'/>
+        })
         
-        navigate("/dashboard")
     }
     return(
         <div className="container ">
+            <BsArrowLeft id="back" color='white' size={40} onClick={() => navigate("/") }/>
+
             <div id="boxlogin" className="container-content" onSubmit={handleSubmitForm}>
                     <h1>LOGIN</h1>
                     <form id="formlogin">

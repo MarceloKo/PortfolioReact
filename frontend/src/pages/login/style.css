@@ -1,5 +1,6 @@
 
 #boxlogin{
+    
     margin: auto;
     width: 100%;
     max-width: 500px;
@@ -12,6 +13,18 @@
     display: flex;
     justify-content: center;
 }
+#back{
+    display:flex;
+    position: absolute;
+    top: 100px;
+    left:10vw;
+    cursor: pointer;
+}
+#back:hover{
+    transition: all 0.1s ease-in;
+    transform: scale(1.1);
+}
+
 #formlogin{
     display: flex;
     flex-direction: column;
