@@ -16,6 +16,10 @@ const UserSchema = new mongoose.Schema({
         required: true,
         select: false
     },
+    details:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Details',
+    },
     createdAt:{
         type: Date,
         default: Date.now

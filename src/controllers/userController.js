@@ -20,7 +20,6 @@ module.exports= {
           
 
         }catch(error){
-        console.log(error)
 
             res.status(400).json({error:"Erro ao criar usuário!"})
         }
@@ -29,7 +28,13 @@ module.exports= {
 
     async get(req,res){
         try{
-            const users = await User.find();
+            const users = await User.find().populate({
+                path:'details',
+                populate:{
+                    path:'skills experience projects',
+                    
+                }
+            });
            
             res.status(200).json(users);
          }
