@@ -1,6 +1,8 @@
 import './style.css'
 import firstPortfolio from "../../assets/projects/firstPortfolio.png"
+import useDetails from '../../store/storeDetails'
 export default function Projetos (){
+    const projetos = useDetails((state) => state.projetos)
     return(
         <>
         <section id="section" className='container-content'>
@@ -11,27 +13,17 @@ export default function Projetos (){
             <div id="bodyprojects">
                
                     <ul>
+                        {console.log(projetos)}
+                        {projetos.length >0 ? projetos.map((projeto)=> 
                         <li> 
-                            <img src={firstPortfolio} alt="portfolio"/>
-                            <h2>Projeto 1</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidemsit amet consectetur adipisicing elit. Quisquam, quidemsit amet consectetur adipisicing elit. Quisquam, quidemsit amet consectetur adipisicing elit. Quisquam, quidem!</p>
-                        </li>
+                            <img src={projeto.imgUrl} alt={projeto.title}/>
+                            <h2>{projeto.title}</h2>
+                            <p>{projeto.description}</p>
+                        </li> ) : <p style={{margin:"auto"}}>Carregando...</p>}
+                       
          
-                        <li> 
-                            <img src={firstPortfolio} alt="portfolio"/>
-                            <h2>Projeto 1</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidemsit amet consectetur adipisicing elit. Quisquam, quidemsit amet consectetur adipisicing elit. Quisquam, quidemsit amet consectetur adipisicing elit. Quisquam, quidem!</p>
-                        </li>
-                        <li> 
-                            <img src={firstPortfolio} alt="portfolio"/>
-                            <h2>Projeto 1</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidemsit amet consectetur adipisicing elit. Quisquam, quidemsit amet consectetur adipisicing elit. Quisquam, quidemsit amet consectetur adipisicing elit. Quisquam, quidem!</p>
-                        </li>
-                        <li> 
-                            <img src={firstPortfolio} alt="portfolio"/>
-                            <h2>Projeto 1</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidemsit amet consectetur adipisicing elit. Quisquam, quidemsit amet consectetur adipisicing elit. Quisquam, quidemsit amet consectetur adipisicing elit. Quisquam, quidem!</p>
-                        </li>
+                       
+
                     </ul>
                
                

@@ -6,16 +6,19 @@ import javascriptlogo from '../../assets/javascriptlogo.png'
 import reactlogo from '../../assets/reactlogo.png'
 import nodelogo from '../../assets/nodelogo.png'
 import mongologo from '../../assets/mongologo.png'
-import Portfolio from "../../components/portfolio";
+import useDetails from "../../store/storeDetails";
 
 export default function Sobre() {
+  const introSobre = useDetails((state) => state.introSobre);
+  const skills = useDetails((state) => state.skills);
+  const experiencia = useDetails((state) => state.experiencia);
   return (
     <>
         <section id="about" className="container-content">
             <div id="aboutme">
               <h1>Saiba quem <span>eu sou</span></h1>
               <p>Meu nome é Marcelo Kohlhase de Cuiabá - MT<br/>
-                Sou um desenvolvedor junior que está cursando Faculdade de Engenharia da Computação. Estou atuando no mercado de trabalho desde janeiro de 2022 atuando como Full Stack.
+              {introSobre ? introSobre : <>Carregando...</>}
               </p>
               <Buttom style={{width:'150px'}}>Projetos</Buttom>
             </div>
@@ -29,10 +32,9 @@ export default function Sobre() {
           <center><h1><span>Skills</span> Profissional</h1></center>
           <div id="container-skill">
             <ul>
-              <li><img src={javascriptlogo} alt='Javascript'/></li>
-              <li><img src={reactlogo} alt='Javascript'/></li>
-              <li><img src={nodelogo} alt='Javascript'/></li>
-              <li><img src={mongologo} alt='Javascript'/></li>
+              
+              {skills.length > 0 ? skills.map((skill) => <li key={skill.language}><img src={skill.imgUrl} alt={skill.language}/></li> ): <p style={{margin:"auto"}}>Carregando...</p>}
+
             
             </ul>
           </div>
@@ -42,32 +44,20 @@ export default function Sobre() {
           <center><h1><span>Experiência</span> Profissional</h1></center>
           <div id="container-experience">
             <ul>
-              <li >
+              {console.log(experiencia)}
+              {experiencia.length >0 ? experiencia.map((experience)=>  
+              <li key={experience._id}>
                 <div id="headerProfissional">
-                  <h3>Desenvolvedor Full Stack - Júnior</h3>
-                  <p>Rutech - Freelance</p>
-                  <p>Janeiro de 2022 - Atualmente</p>
+                  <h3>{experience.occupation}</h3>
+                  <p>{experience.company} - {experience.contract}</p>
+                  <p>{experience.dateInitial} - {experience.dateEnd}</p>
                 </div>
                 <div className="barraTransversal"></div>
                 <div id="descriptionProfissional">
-                  <p>Atuando como full stack na realização e elaboração de um marketplace, utilizando como ferramenta de desenvolvimento o React.Js, Next.js, Node js e MongoDB.</p>
+                  <p>{experience.description}</p>
                 </div>
-              </li>
-              <li >
-                <div id="headerProfissional">
-                  <h3>Desenvolvedor Full Stack - Júnior</h3>
-                  <p>SEMOB - Estágio</p>
-                  <p>Abril de 2022 - Atualmente</p>
-                </div>
-                <div className="barraTransversal"></div>
-                <div id="descriptionProfissional">
-                  <p>Desenvolvendo um painel administrativo para a PMMT, tendo como tecnologias para 
-                    desenvolvimento, React js, Node e Mysql utilizando Knex.</p>
-                </div>
-              </li>
-            
+              </li>) : <p style={{margin:"auto"}}>Carregando...</p>}
              
-            
             </ul>
           </div>
         </section>

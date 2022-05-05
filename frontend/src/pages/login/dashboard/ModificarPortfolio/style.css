@@ -1,0 +1,117 @@
+.modifyPortfolio{   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding:30px;
+    
+    
+}
+.modifyPortfolio p{
+    color: black;
+}
+.modifyPortfolio h1{
+    font-size:30px;
+    margin-top: 0;
+    color: black;
+}
+.modifyPortfolio ul{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    width: 100%;
+    
+}
+.modifyPortfolio ul li{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+    
+}
+.titlePortfolioDashboard{
+    font-size:20px;
+    margin-bottom: 15px;
+    line-height: 2;
+    border-bottom: 5px solid #5d41aa;
+}
+.ButtonDashboard{
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.ButtonDashboard button{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width:250px;
+    height:45px;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    font-size: 17px;
+    color: #fff;
+    background: #3b4f9b;
+}
+.ButtonDashboard button:hover{
+    background: #5c80ff;
+}
+
+.formExpAdd{
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    background: rgb(233, 233, 233);
+    margin: 20px 0;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.formExpAdd input{
+    border: none;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    max-width: 250px;
+    font-size: 17px;
+    font-weight: 500;
+    height: 30px;
+    background: none;
+    border-bottom: 1px solid rgb(0, 0, 0);
+}
+.formExpAdd input:focus, .formExpAdd textarea:focus, .formExpAdd select:focus {
+    outline: none;
+}
+.formExpAdd textarea{
+    max-width: 535px;
+    border: none;
+    width: 100%;
+    min-height: 80px;
+    margin-bottom: 20px;
+}
+.formExpAdd button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 150px;
+    margin-top: 10px;
+    width: 100%;
+    cursor: pointer;
+    height: 40px;
+    border: none;
+    border-radius: 2px;
+    font-size: 17px;
+    color: #fff;
+    background: #5572D9;
+}
+.formExpAdd select{
+    height: 35px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+.formRow{
+    display: flex;
+    justify-content: space-between;
+}

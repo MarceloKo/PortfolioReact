@@ -4,9 +4,10 @@ import Inicio from "./pages/inicio";
 import Sobre from "./pages/sobre";
 import Projetos from "./pages/projetos";
 import Login from "./pages/login";
-import Dashboard from "./pages/login/dashboard";
 import Portfolio from "./components/portfolio";
 import { PrivateRoute } from "./components/PrivateRoute/privateRoute";
+import InicioDashboard from "./pages/login/dashboard/inicio";
+import AlterarPortfolio from "./pages/login/dashboard/ModificarPortfolio";
 
 const MainRoutes = ()=> {
 
@@ -22,9 +23,14 @@ const MainRoutes = ()=> {
                     <Route path="/*" element={<h1 style={{margin:'auto'}}>PÁGINA NÃO ENCONTRADA</h1>} />
 
                     {/* Private Routes */}
-                    <Route path="/dashboard"  element={
+                    <Route path="/dashboard/"  element={
                         <PrivateRoute redirectTo={"/login"}>
-                            <Dashboard/>
+                            <InicioDashboard/>
+                        </PrivateRoute>} 
+                    /> 
+                    <Route path="/dashboard/alterarportfolio"  element={
+                        <PrivateRoute redirectTo={"/login"}>
+                            <AlterarPortfolio/>
                         </PrivateRoute>} 
                     /> 
 

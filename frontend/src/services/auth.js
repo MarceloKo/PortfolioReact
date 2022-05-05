@@ -4,7 +4,6 @@ export const NOME_USUARIO= "name_user";
 
 export const login = (token,id, name) => {
     localStorage.setItem(TOKEN_KEY, token);
-    localStorage.setItem(ID_USUARIO, id);
     localStorage.setItem(NOME_USUARIO, name);
  
 }
