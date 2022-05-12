@@ -54,6 +54,40 @@ module.exports= {
         }
         
     },
+    async update(req,res){
+        if(!req.body.occupation || !req.body.company || !req.body.contract || !req.body.dateInitial || !req.body.dateEnd || !req.body.description){
+            return res.status(400).json({error:"Preencha todos os campos!"})
+        }
+        const {_id} = req.body;
+
+        const data = {
+            occupation:req.body.occupation,
+            company:req.body.company ,
+            contract:req.body.contract,
+            dateInitial:req.body.dateInitial,
+            dateEnd:req.body.dateEnd,
+            description:req.body.description,
+        }
+        try{
+            await Experience.findOneAndUpdate({_id}, data)
+            .then((response)=>{
+                if(response){
+                    res.status(200).json({message:"Experiência atualizada com sucesso!"})
+                }else{
+                    res.status(400).json({error:"Experiência não encontrada!"})
+                }
+                
+            }).catch(()=>{
+                res.status(400).json({error:"Erro ao atualizar a experiência!"})
+            })
+            
+          
+         }
+        catch{
+            res.status(400).json({error:"Erro ao buscar as experiências!"})
+        }
+
+    }
     
 }
 

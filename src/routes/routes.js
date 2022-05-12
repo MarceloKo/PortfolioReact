@@ -25,6 +25,7 @@ routes.post('/experience/store', experienceController.store)
 routes.post('/experience/delete', experienceController.delete)
 routes.get('/experience/get', experienceController.get)
 routes.post('/experience/getone', experienceController.getOne)
+routes.post('/experience/update', experienceController.update)
 
 routes.post('/details/store', detailsController.store)
 routes.get('/details/get', detailsController.get)
