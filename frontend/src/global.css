@@ -19,6 +19,7 @@ p{
     background: #1E1E2F;
     background-image: linear-gradient(270deg,#241a38,#140f23);
 }
+
 /* .minh-100{
     min-height: calc(100vh - 71px);
 } */
@@ -38,3 +39,4 @@ p{
 .BoxNull h2{
     color: black;
 }
+
