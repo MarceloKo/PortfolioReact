@@ -1,33 +1,91 @@
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import { MdPhotoCamera } from "react-icons/md"
+import api from "../../../../../services/api";
 export default function Skills() {
     const [openSkill, setOpenSkill] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
+    const [Skills, setSkills] = useState([]);
+    const [file, setFile] = useState()
 
-    async function skillAdd(e){
-        e.preventDefault();
-
+    const getApiSkills = async () => {
+        const response = await api.get('/skill/get')
+        setSkills(response.data.map(skill => { return { id: skill._id, value: skill.language } }))
     }
 
+    async function skillAdd(e) {
+        e.preventDefault();
+        const formData = new FormData()
+        if (!e.target.nameSkill.value) {
+            alert("Preencha o nome da skill")
+            return
+        }
+        if (!file) {
+            alert("Selecione uma imagem")
+            return
+        }
+
+       
+        
+        formData.append("arrayOfFiles", file)
+        const data = {
+            language: e.target.nameSkill.value,
+    
+        }
+        formData.append("data",JSON.stringify(data))
+        setIsLoading(true)
+        await api.post('skill/store', formData)
+            .then(() => {
+                e.target.reset()
+                setFile()
+                alert("Skill adicionada com sucesso")
+                setIsLoading(false)
+            })
+            .catch(err => {
+                alert("Ocorreu um erro ao adicionar skill!")
+                setIsLoading(false)
+            })
+        console.log(data)
+
+
+    }
+    function sendExcluirSkill(e) {
+        e.preventDefault();
+    }
+    useEffect(() => {
+        getApiSkills();
+    }, [])
     return (
         <>
             <div className="titlePortfolioDashboard">Skills</div>
+
             <div className="ButtonDashboard">
                 <button onClick={() => { if (openSkill.skillAdd) { setOpenSkill({ skillAdd: false }) } else { setOpenSkill({ skillAdd: true }) } }}>Adicionar</button>
                 <button onClick={() => { if (openSkill.skillExc) { setOpenSkill({ skillExc: false }) } else { setOpenSkill({ skillExc: true }) } }}>Excluir</button>
                 <button onClick={() => { if (openSkill.skillAlt) { setOpenSkill({ skillAlt: false }) } else { setOpenSkill({ skillAlt: true }) } }}>Alterar</button>
             </div>
-            {openSkill.skillAdd && 
-            <div>
-                <form onSubmit={skillAdd} className="formSkill">
-                    <div className="SkillBox">
-                        <input type="text" placeholder="Nome da Skill" />
-                        <input type="file" placeholder="Imagem da Skill" />
-                        <button type="submit">Adicionar</button>
-                    </div>
-                    
-                </form>
-            </div>}
-            {openSkill.skillExc && <div>Excluir</div>}
+            {openSkill.skillAdd &&
+                <div>
+                    <form onSubmit={skillAdd} className="formSkill">
+                        <div className="SkillBox">
+                            <input type="text" name="nameSkill" placeholder="Nome da Skill" />
+                            <label htmlFor="fileSkill"><MdPhotoCamera />{file ? 'Alterar foto' : 'Adicionar foto'}</label>
+                            <p style={{ fontSize: '12px', marginTop: '-5px' }}>{file && file.name}</p>
+                            <input type="file" name="fileSkill" id="fileSkill" placeholder="Imagem da Skill" onChange={(e) => setFile(e.target.files[0])} />
+                            <button type="submit" disabled={isLoading}>{isLoading? "Enviando..." : "Adicionar"}</button>
+
+                        </div>
+
+                    </form>
+                </div>}
+            {openSkill.skillExc &&
+                <form className="formExpAdd" onSubmit={sendExcluirSkill}>
+                    <select name="select">
+                        <option value="">Selecione uma experiência</option>
+                        {Skills.map(skill => <option value={skill.id} key={skill.id}>{skill.value}</option>)}
+                    </select>
+                    <button type="submit">Excluir</button>
+
+                </form>}
             {openSkill.skillAlt && <div>Alterar</div>}
         </>
     )

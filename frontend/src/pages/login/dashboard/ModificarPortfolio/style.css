@@ -171,3 +171,28 @@
     color: #fff;
     background: #5572D9;
 }
+
+.SkillBox input[type="file"]{
+    display: none;
+}
+
+.SkillBox label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: white;
+    border-radius: 5px;
+    height: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+    flex-wrap: wrap;
+    /* max-width: 100px; */
+    gap: 10px;
+    font-size: 20px;
+
+}
+.SkillBox label:hover{
+    
+box-shadow: inset 0px 0px 1px 0px #000000;
+}
