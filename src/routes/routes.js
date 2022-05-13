@@ -1,4 +1,6 @@
 const express = require('express')
+
+const upload = require('../libs/multer')
 const routes = express.Router()
 const authMiddleware = require('../middlewares/auth')
 const UserController = require('../controllers/userController')
@@ -15,7 +17,7 @@ routes.post('/user/store' ,UserController.store)
 routes.get('/user/get', UserController.get)
 routes.post('/user/authenticate', UserController.authenticate)
 
-routes.post('/skill/store', skillController.store)
+routes.post('/skill/store', upload.single('arrayOfFiles') ,skillController.store)
 routes.get('/skill/get', skillController.get)
 
 routes.post('/project/store', projectController.store)
