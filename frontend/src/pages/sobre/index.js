@@ -2,10 +2,6 @@ import Buttom from "../../components/buttom";
 import image from '../../assets/profile-pic2.png'
 import './style.css';
 import '../../global.css'
-import javascriptlogo from '../../assets/javascriptlogo.png'
-import reactlogo from '../../assets/reactlogo.png'
-import nodelogo from '../../assets/nodelogo.png'
-import mongologo from '../../assets/mongologo.png'
 import useDetails from "../../store/storeDetails";
 
 export default function Sobre() {

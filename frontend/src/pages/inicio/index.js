@@ -3,7 +3,6 @@ import './style.css'
 import '../../global.css'
 import banner from '../../assets/banner.png'
 import Buttom from "../../components/buttom";
-import Portfolio from '../../components/portfolio';
 import useDetails from '../../store/storeDetails';
 export default function Inicio() {
   const introInicio = useDetails((state) => state.introInicio);
