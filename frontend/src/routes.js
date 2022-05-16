@@ -8,6 +8,7 @@ import Portfolio from "./components/portfolio";
 import { PrivateRoute } from "./components/PrivateRoute/privateRoute";
 import InicioDashboard from "./pages/login/dashboard/inicio";
 import AlterarPortfolio from "./pages/login/dashboard/ModificarPortfolio";
+import Blocodenotas from "./pages/login/dashboard/BlocoNotas";
 
 const MainRoutes = ()=> {
 
@@ -32,7 +33,12 @@ const MainRoutes = ()=> {
                         <PrivateRoute redirectTo={"/login"}>
                             <AlterarPortfolio/>
                         </PrivateRoute>} 
-                    /> 
+                    />
+                    <Route path="/dashboard/blocodenotas"  element={
+                        <PrivateRoute redirectTo={"/login"}>
+                            <Blocodenotas/>
+                        </PrivateRoute>
+                    } />
 
                 </Routes>
            

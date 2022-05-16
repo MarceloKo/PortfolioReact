@@ -12,7 +12,7 @@ export default function Projetos (){
             <div id="bodyprojects">
                
                     <ul>
-                        {console.log(projetos)}
+                      
                         {projetos.length >0 ? projetos.map((projeto)=> 
                         <li> 
                             <img src={projeto.imgUrl} alt={projeto.title}/>

@@ -40,7 +40,7 @@ export default function Sobre() {
           <center><h1><span>Experiência</span> Profissional</h1></center>
           <div id="container-experience">
             <ul>
-              {console.log(skills)}
+           
               {experiencia.length >0 ? experiencia.map((experience)=>  
               <li key={experience._id}>
                 <div id="headerProfissional">

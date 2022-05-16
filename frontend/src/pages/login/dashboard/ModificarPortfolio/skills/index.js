@@ -46,7 +46,7 @@ export default function Skills() {
                 alert("Ocorreu um erro ao adicionar skill!")
                 setIsLoading(false)
             })
-        console.log(data)
+       
 
 
     }

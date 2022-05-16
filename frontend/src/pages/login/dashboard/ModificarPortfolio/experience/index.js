@@ -87,8 +87,6 @@ export default function Experience() {
     const sendAltExp = async (e) => {
         e.preventDefault()
 
-        console.log(getExpAlt)
-        // setGetExpAlt()
         if (!getExpAlt.occupation || !getExpAlt.company || !getExpAlt.contract || !getExpAlt.dateInitial || !getExpAlt.dateEnd || !getExpAlt.description) {
             alert("Preencha todos os campos!");
         }
@@ -100,7 +98,7 @@ export default function Experience() {
 
 
             }).catch((error) => {
-                console.log(error.response.data.error)
+                alert("Erro ao alterar experiência!");
             })
         e.target.reset()
 

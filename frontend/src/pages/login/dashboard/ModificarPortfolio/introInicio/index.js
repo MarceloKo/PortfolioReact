@@ -41,7 +41,7 @@ return (
         <div className="ButtonDashboard">
             <button onClick={handleClick}>Alterar</button>
         </div>
-        {console.log(intro)}
+       
         {openIntroInicio.alt && 
         <form className="formExpAdd" onSubmit={sendAltIntro}>
             <p>Introdução inicio</p>
