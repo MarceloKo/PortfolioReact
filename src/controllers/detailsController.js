@@ -35,7 +35,18 @@ module.exports= {
         }
         
     },
-
+    async update(req,res){
+        const {_id, introInicio,introSobre} = req.body;
+        if(!_id || !introInicio || !introSobre){
+            res.status(400).json({error:"Preencha todos os campos!"})
+        }
+        try{
+            const response = await Details.findByIdAndUpdate(_id, {introInicio,introSobre});
+            res.status(200).json(response);
+        }catch(error){
+            res.status(400).json({error:"Erro ao atualizar detalhes!"})
+        }
+    }
     
 }
 

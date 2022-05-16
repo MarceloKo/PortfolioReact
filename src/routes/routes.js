@@ -33,6 +33,7 @@ routes.post('/experience/update', experienceController.update)
 
 routes.post('/details/store', detailsController.store)
 routes.get('/details/get', detailsController.get)
+routes.post('/details/update', detailsController.update)
 
 
 module.exports = routes;
