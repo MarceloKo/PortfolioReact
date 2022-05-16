@@ -39,6 +39,8 @@ export default function Skills() {
                 setFile()
                 alert("Skill adicionada com sucesso")
                 setIsLoading(false)
+                getApiSkills()
+
             })
             .catch(err => {
                 alert("Ocorreu um erro ao adicionar skill!")
@@ -48,8 +50,18 @@ export default function Skills() {
 
 
     }
-    function sendExcluirSkill(e) {
+    async function sendExcluirSkill(e) {
         e.preventDefault();
+        if (!e.target.select.value) {
+            return alert("Selecione uma skill para excluir!")
+        }
+        await api.post('/skill/delete', { id: e.target.select.value })
+            .then(() => {
+                alert("Skill excluida com sucesso!")
+                getApiSkills()
+            }).catch((error) => {
+                alert(error.response.data.error)
+            })
     }
     useEffect(() => {
         getApiSkills();

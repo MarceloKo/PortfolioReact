@@ -43,6 +43,35 @@ module.exports = {
 
     },
 
+    async getOne(req,res){
+        const {id} = req.body;
+        try{
+            const Skills = await Skill.findOne({_id:id});
+            
+            
+            res.status(200).json(Skills);
+         }
+        catch{
+            res.status(400).json({error:"Erro ao buscar as skills!"})
+        }
+        
+    },
+
+    async delete(req,res){
+        const {id} = req.body;
+        try{
+            const Skills = await Skill.findOneAndRemove({_id:id});
+            if(Skills == null){
+                return res.status(400).json({error:"Skill não encontrada!"})
+            }
+            res.status(200).json(Skills);
+         }
+        catch{
+            res.status(400).json({error:"Erro ao buscar as Skills!"})
+        }
+        
+    },
+
 
 }
 

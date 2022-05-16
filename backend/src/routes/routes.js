@@ -18,7 +18,9 @@ routes.get('/user/get', UserController.get)
 routes.post('/user/authenticate', UserController.authenticate)
 
 routes.post('/skill/store', upload.single('arrayOfFiles') ,skillController.store)
+routes.post('/skill/delete', skillController.delete)
 routes.get('/skill/get', skillController.get)
+routes.post('/skill/getone', skillController.getOne)
 
 routes.post('/project/store', projectController.store)
 routes.get('/project/get', projectController.get)
