@@ -73,7 +73,6 @@ export default function Skills() {
             <div className="ButtonDashboard">
                 <button onClick={() => { if (openSkill.skillAdd) { setOpenSkill({ skillAdd: false }) } else { setOpenSkill({ skillAdd: true }) } }}>Adicionar</button>
                 <button onClick={() => { if (openSkill.skillExc) { setOpenSkill({ skillExc: false }) } else { setOpenSkill({ skillExc: true }) } }}>Excluir</button>
-                <button onClick={() => { if (openSkill.skillAlt) { setOpenSkill({ skillAlt: false }) } else { setOpenSkill({ skillAlt: true }) } }}>Alterar</button>
             </div>
             {openSkill.skillAdd &&
                 <div>
@@ -98,7 +97,6 @@ export default function Skills() {
                     <button type="submit">Excluir</button>
 
                 </form>}
-            {openSkill.skillAlt && <div>Alterar</div>}
         </>
     )
 }

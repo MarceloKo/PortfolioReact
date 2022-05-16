@@ -1,5 +1,4 @@
 import './style.css'
-import firstPortfolio from "../../assets/projects/firstPortfolio.png"
 import useDetails from '../../store/storeDetails'
 export default function Projetos (){
     const projetos = useDetails((state) => state.projetos)
