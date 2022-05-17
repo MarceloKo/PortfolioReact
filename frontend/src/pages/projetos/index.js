@@ -14,7 +14,7 @@ export default function Projetos (){
                     <ul>
                       
                         {projetos.length >0 ? projetos.map((projeto)=> 
-                        <li> 
+                        <li key={projeto.title}> 
                             <img src={projeto.imgUrl} alt={projeto.title}/>
                             <h2>{projeto.title}</h2>
                             <p>{projeto.description}</p>

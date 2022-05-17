@@ -58,7 +58,7 @@ export default function Inicio() {
         <section id="sectionbox" className="container-content">
           <h2>UMA BREVE INTRODUÇÃO SOBRE MIM</h2>
           <div id="box">
-            <p>{introInicio ? introInicio : <p>Carregando...</p>}</p>
+            <p>{introInicio ? introInicio : 'Carregando...'}</p>
           </div>
           
         </section>

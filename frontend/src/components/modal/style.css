@@ -1,0 +1,52 @@
+.Modal{
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    
+}
+
+.BoxModal{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    width: 500px;
+    background: rgb(255, 255, 255);
+    padding: 15px;
+    border-radius: 10px;
+}
+.BoxModal p,.BoxModal h1{
+    color: black;
+}
+.titleModal{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom:2px solid black;
+    margin-bottom: 10px;
+}
+.titleModal svg{
+    cursor: pointer;
+}
+
+.titleModal h2{
+    color: black;
+    line-height: 0;
+
+}
+
+.titleModal input{
+    width: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 1.2em;
+    color: black;
+    font-weight: bold;
+}

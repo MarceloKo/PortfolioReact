@@ -5,6 +5,9 @@ import {AiFillHome} from "react-icons/ai"
 import  {Link, useNavigate}  from "react-router-dom"
 import {BsPenFill} from "react-icons/bs"
 import { logout } from "../../services/auth"
+import Modal from "../modal"
+
+
 
 export default function Dashboard ({children}){
     const navigate = useNavigate()
@@ -12,7 +15,9 @@ export default function Dashboard ({children}){
         logout()
         navigate('/login')
     }
+    
     return (
+        <>
         <div className="containerDashboard">
             <div className="menuDashboard">
                 <ul>
@@ -31,6 +36,10 @@ export default function Dashboard ({children}){
                     {children}
                 </body>
             </section>
+
         </div>
+        <Modal/>
+
+        </>
     )
 }

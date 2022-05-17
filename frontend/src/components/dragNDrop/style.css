@@ -1,0 +1,70 @@
+
+.drag-n-drop{
+    display: flex;
+    width: 100%;
+    background: #ffffff;
+    padding: 15px;
+    box-sizing: border-box;
+    overflow-x: auto;
+    
+
+}
+.dnd-group{
+    display: flex;
+    flex-direction: column;
+    background: #5c80ff;
+    min-width: 280px;
+    height: min-content;
+    margin: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    gap: 5px;
+    border-radius: 5px;
+    align-items: center;
+}
+.dnd-group p{
+    font-weight: bold;
+    font-size: 17px;
+    color: black;
+}
+.dnd-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #dfdfdf;
+    border-radius: 10px;
+    min-height: 150px;
+    width: 100%;
+    cursor: grab;
+    padding: 10px;
+    box-sizing: border-box;
+    max-width: 250px;
+    max-height: 150px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.current{
+    background-color: #282c340c;
+}
+.current p {
+    display: none;
+}
+
+.addItem{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    margin-top: 15px;
+    color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    
+}
+.addItem:hover{
+    transition: all 0.2s ease-in-out;
+    color: #362753;
+}
