@@ -9,7 +9,7 @@ const skillController = require('../controllers/skillController')
 const projectController = require('../controllers/projectController')
 const detailsController = require('../controllers/detailsController')
 const experienceController = require('../controllers/experienceController')
-
+const anotationController = require('../controllers/anotationController')
 
 routes.get('/session/verify', authMiddleware, sessionController.verify)
 
@@ -34,6 +34,12 @@ routes.post('/experience/update', experienceController.update)
 routes.post('/details/store', detailsController.store)
 routes.get('/details/get', detailsController.get)
 routes.post('/details/update', detailsController.update)
+
+routes.post('/anotation/store', anotationController.store)
+routes.get('/anotation/get', anotationController.get)
+routes.post('/anotation/update', anotationController.update)
+routes.post('/anotation/createitem', anotationController.createItem)
+routes.post('/anotation/deleteitem', anotationController.deleteItem)
 
 
 module.exports = routes;
