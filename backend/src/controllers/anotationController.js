@@ -3,11 +3,14 @@ const Anotation = require("../models/Anotation");
 module.exports= {
     async store(req,res){
         try{  
-            const {title,items} = req.body;
-            
             const data = {
-                title,
-                items
+                title:"Novo grupo",
+                items:[
+                    {
+                        title:"Titulo",
+                        description:"Descrição"
+                    }
+                ]
             }
             const response = await Anotation.create(data)
             res.status(200).json({data: response});
@@ -32,6 +35,9 @@ module.exports= {
     async update(req,res){
         try{
             const {list} = req.body
+            if(!list){
+                return res.status(400).json({error:"Informe a lista!"})
+             }
             list.map(async(grupo)=>{
                 return await Anotation.findOneAndUpdate({_id:grupo._id},{$set:{items:grupo.items}})
  
@@ -46,6 +52,9 @@ module.exports= {
     async createItem(req,res){
         try{
             const {_id} = req.body;
+            if(!_id){
+                return res.status(400).json({error:"Informe qual grupo!"})
+             }
             const response = await Anotation.findOneAndUpdate({_id},{$push:{items:{title:'Novo item',description:'descrição'}}})
             res.status(200).json(response);
         }catch(error){
@@ -55,10 +64,34 @@ module.exports= {
     async deleteItem(req,res){
         try{
             const {_id,idItem} = req.body;
-            await Anotation.findOneAndUpdate({_id},{$pull:{items: {_id:idItem}}})
+            if(!_id || !idItem){
+                return res.status(400).json({error:"Erro ao deletar item!"})
+             }
+            const response = await Anotation.findOneAndUpdate({_id},{$pull:{items: {_id:idItem}}})
+            if(response.items.length == 1){
+                await Anotation.findOneAndRemove({_id})
+            }
             res.status(200).json({message:"Item deletado com sucesso!"});
         }catch(error){
-            res.status(400).json({error:"Erro ao criar item!"})
+            res.status(400).json({error:"Erro ao deletar item!"})
+        }
+    },
+    async updateItem(req,res){
+        try{
+            const {_id,title,description} = req.body;
+            if(!_id){
+               return res.status(400).json({error:"Informe qual item!"})
+            }
+            if(!title){
+                return res.status(400).json({error:"Informe o titulo!"})
+            }
+            if(!description){
+                return res.status(400).json({error:"Informe a descrição!"})
+            }
+            await Anotation.findOneAndUpdate({"items._id":_id},{$set:{"items.$.title":title,"items.$.description":description}})
+            res.status(200).json({message:"Item atualizado com sucesso!"});
+        }catch(error){
+            res.status(400).json({error:"Erro ao atualizar item!"})
         }
     },
     

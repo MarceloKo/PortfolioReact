@@ -8,6 +8,7 @@ export default function DragNDrop({ data }) {
     const [list, setList] = useState(data)
     const listSend = useAnotation((state) => state.listSend);
     const setListSend = useAnotation((state) => state.setListSend);
+    const getDate = useAnotation((state) => state.getDate);
     const [loading, setLoading] = useState(false)
     const [dragging, setDragging] = useState(false)
     const dragItem = useRef()
@@ -18,11 +19,12 @@ export default function DragNDrop({ data }) {
 
     
     useEffect(()=>{
-        getData()
-    },[])
+            getData()
+  
+    },[getDate])
+
     useEffect(() => {
         const sendNewList = async () => {
-            console.log('enviou')
             await api.post('/anotation/update', { list: listSend })
         }
         if (loading) {
@@ -32,7 +34,6 @@ export default function DragNDrop({ data }) {
     }, [listSend,loading])
 
     const handleCreateItem= async (id)=>{
-        console.log(id)
         await api.post('/anotation/createitem', {_id:id})
         .then(()=>{
             getData()
@@ -45,7 +46,7 @@ export default function DragNDrop({ data }) {
     }
 
     const handleDragStart = (e, params) => {
-        console.log('drag starting..', params)
+        // console.log('drag starting..', params)
         dragItem.current = params;
         dragNode.current = e.target;
         dragNode.current.addEventListener('dragend', handleDragEnd)
@@ -70,9 +71,8 @@ export default function DragNDrop({ data }) {
     }
 
     const handleDragEnd = (e) => {
-        console.log('Ending drag..')
+        // console.log('Ending drag..')
         setLoading(true)
-
         dragItem.current = null;
         dragNode.current.removeEventListener('dragend', handleDragEnd)
         dragNode.current = null;
@@ -86,12 +86,19 @@ export default function DragNDrop({ data }) {
         };
         return 'dnd-item'
     }
+    const createGroup = async () => {
+        await api.post('/anotation/store')
+        .then(()=>{
+            getData()
+        }).catch(()=>{
+            alert('Erro ao criar grupo')
+        })
+    }
 
     return (
         <div className="drag-n-drop">
             {list &&
                 list.map((grp, grpI) => (
-
                     <div
                         className="dnd-group"
                         key={grp._id}
@@ -105,7 +112,7 @@ export default function DragNDrop({ data }) {
                                     onDragEnter={dragging ? (e) => handleDragEnter(e, { grpI, itemI }) : null}
                                     onDragStart={(e) => { handleDragStart(e, { grpI, itemI }) }}
                                     onClick={()=>{
-                                        setModalContent({title:item.title,body:item.description,id:item._id})
+                                        setModalContent({title:item.title,body:item.description,id:item._id,idgroup:grp._id})
                                         setOpen()
 
                                     }}
@@ -116,11 +123,17 @@ export default function DragNDrop({ data }) {
                             )
                         })}
                         <div className="addItem" onClick={()=>handleCreateItem(grp._id)}><IoIosAddCircle /></div>
-                        
+          
                     </div>
+                   
+
+                   
                 ))
+                
             }
-            
+            <div className="addGrupo" onClick={createGroup}>
+                <h3>+ Grupo</h3>
+            </div>
         </div>
     )
 }

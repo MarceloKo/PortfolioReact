@@ -68,3 +68,21 @@
     transition: all 0.2s ease-in-out;
     color: #362753;
 }
+
+.addGrupo{
+    display: flex;
+    flex-direction: column;
+    background: #5c80ff;
+    min-width: 100px;
+    height: min-content;
+    margin: 5px;
+    padding: 0px 40px;
+    box-sizing: border-box;
+    gap: 5px;
+    border-radius: 5px;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+
