@@ -40,6 +40,7 @@ routes.get('/anotation/get', anotationController.get)
 routes.post('/anotation/update', anotationController.update)
 routes.post('/anotation/createitem', anotationController.createItem)
 routes.post('/anotation/deleteitem', anotationController.deleteItem)
+routes.post('/anotation/updateitem', anotationController.updateItem)
 
 
 module.exports = routes;
