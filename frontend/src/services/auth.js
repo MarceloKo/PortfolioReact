@@ -14,9 +14,6 @@ export const logout = () => {
     localStorage.clear(NOME_USUARIO);
 }
 
-export const headers = ()=>
-  {
-    const token = localStorage.getItem("token")
-      return {headers: {authorization: `Bearer ${token}`}}
-    }
+export const headers = {headers: {authorization: 'Bearer ' + localStorage.getItem("token")}}
+    
 
