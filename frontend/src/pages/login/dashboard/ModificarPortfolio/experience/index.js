@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../../../../../services/api";
-import { headers } from "../../../../../services/auth";
+
 
 export default function Experience() {
     const [openExperience, setOpenExperience] = useState({});
@@ -52,7 +52,7 @@ export default function Experience() {
         if (!data.occupation || !data.company || !data.contract || !data.dateInitial || !data.dateEnd || !data.description) {
             alert("Preencha todos os campos!");
         }
-        await api.post('/experience/store', data,headers)
+        await api.post('/experience/store', data,{headers: {authorization: 'Bearer ' + localStorage.getItem("token")}})
             .then(() => {
                 alert("Experiência adicionada com sucesso!");
                 e.target.reset()
@@ -68,7 +68,7 @@ export default function Experience() {
         if (!e.target.select.value) {
             return alert("Selecione uma experiencia para excluir!")
         }
-        await api.post('/experience/delete', { id: e.target.select.value },headers)
+        await api.post('/experience/delete', { id: e.target.select.value },{headers: {authorization: 'Bearer ' + localStorage.getItem("token")}})
             .then(() => {
                 alert("Experiência excluida com sucesso!")
                 getExperience()
@@ -78,7 +78,7 @@ export default function Experience() {
     }
 
     const selectedAltExp = async (e) => {
-        await api.post('/experience/getone', { id: e.target.value },headers).then((response) => {
+        await api.post('/experience/getone', { id: e.target.value },{headers: {authorization: 'Bearer ' + localStorage.getItem("token")}}).then((response) => {
             setGetExpAlt(response.data)
         }).catch(() => {
             setGetExpAlt(null)
@@ -91,7 +91,7 @@ export default function Experience() {
         if (!getExpAlt.occupation || !getExpAlt.company || !getExpAlt.contract || !getExpAlt.dateInitial || !getExpAlt.dateEnd || !getExpAlt.description) {
             alert("Preencha todos os campos!");
         }
-        await api.post('/experience/update', getExpAlt,headers)
+        await api.post('/experience/update', getExpAlt,{headers: {authorization: 'Bearer ' + localStorage.getItem("token")}})
             .then(() => {
                 alert("Experiência alterada com sucesso!");
                 setGetExpAlt(null)

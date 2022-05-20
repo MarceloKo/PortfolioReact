@@ -5,7 +5,7 @@ import useContext from "../../store/storeContext";
 import {  useEffect, useRef, useState } from "react";
 import api from "../../services/api";
 import useAnotation from "../../store/storeAnotation";
-import { headers } from "../../services/auth";
+
 export default function Modal() {
     const open = useContext((state) => state.open);
     const setClose = useContext((state) => state.setClose);
@@ -27,7 +27,7 @@ export default function Modal() {
             window.clearTimeout(timeoutRef.current)
             timeoutRef.current = window.setTimeout(async () => {
                 setSave(true)
-                await api.post('/anotation/updateitem', data,headers)
+                await api.post('/anotation/updateitem', data,{headers: {authorization: 'Bearer ' + localStorage.getItem("token")}})
                     .then(() => {
                         setGetDate(!getDate)
                     }).catch(() => {
@@ -52,7 +52,7 @@ export default function Modal() {
     }
     const deleteItem = async () => {
 
-        await api.post('/anotation/deleteitem', { _id: data.idgroup, idItem: data._id },headers)
+        await api.post('/anotation/deleteitem', { _id: data.idgroup, idItem: data._id },{headers: {authorization: 'Bearer ' + localStorage.getItem("token")}})
             .then(() => {
                 closeModal()
                 setGetDate(!getDate)

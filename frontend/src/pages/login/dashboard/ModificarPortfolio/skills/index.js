@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { MdPhotoCamera } from "react-icons/md"
 import api from "../../../../../services/api";
-import { headers } from "../../../../../services/auth";
+
 export default function Skills() {
     const [openSkill, setOpenSkill] = useState({});
     const [isLoading, setIsLoading] = useState(false);
@@ -35,7 +35,7 @@ export default function Skills() {
         formData.append("data",JSON.stringify(data))
         setIsLoading(true)
        
-        await api.post('skill/store', formData, headers)
+        await api.post('skill/store', formData, {headers: {authorization: 'Bearer ' + localStorage.getItem("token")}})
             .then(() => {
                 e.target.reset()
                 setFile()
@@ -57,7 +57,7 @@ export default function Skills() {
         if (!e.target.select.value) {
             return alert("Selecione uma skill para excluir!")
         }
-        await api.post('/skill/delete', { id: e.target.select.value },headers)
+        await api.post('/skill/delete', { id: e.target.select.value },{headers: {authorization: 'Bearer ' + localStorage.getItem("token")}})
             .then(() => {
                 alert("Skill excluida com sucesso!")
                 getApiSkills()

@@ -5,7 +5,7 @@ import {AiOutlineEye} from "react-icons/ai"
 import api from "../../services/api";
 import useAnotation from "../../store/storeAnotation";
 import useContext from "../../store/storeContext";
-import { headers } from "../../services/auth";
+
 export default function DragNDrop() {
     const [list, setList] = useState()
 
@@ -28,7 +28,7 @@ export default function DragNDrop() {
 
     useEffect(() => {
         const sendNewList = async () => {
-            await api.post('/anotation/update', { list: listSend },headers)
+            await api.post('/anotation/update', { list: listSend },{headers: {authorization: 'Bearer ' + localStorage.getItem("token")}})
         }
         if (loading) {
             sendNewList()
@@ -37,7 +37,7 @@ export default function DragNDrop() {
     }, [listSend,loading])
 
     const handleCreateItem= async (id)=>{
-        await api.post('/anotation/createitem', {_id:id},headers)
+        await api.post('/anotation/createitem', {_id:id},{headers: {authorization: 'Bearer ' + localStorage.getItem("token")}})
         .then(()=>{
             getData()
         })
@@ -90,7 +90,7 @@ export default function DragNDrop() {
         return 'dnd-item'
     }
     const createGroup = async () => {
-        await api.post('/anotation/store',[],headers)
+        await api.post('/anotation/store',[],{headers: {authorization: 'Bearer ' + localStorage.getItem("token")}})
         .then(()=>{
             getData()
         }).catch(()=>{
@@ -99,7 +99,7 @@ export default function DragNDrop() {
     }
     
     const handleClickHiddenGroup = async(_id)=>{
-        await api.post('/anotation/hiddengroup', {_id:_id},headers)
+        await api.post('/anotation/hiddengroup', {_id:_id},{headers: {authorization: 'Bearer ' + localStorage.getItem("token")}})
         .then(()=>{
             getData()
         }).catch(()=>{
