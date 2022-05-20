@@ -1,11 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./style.css"
 import { IoIosAddCircle } from "react-icons/io"
+import {AiOutlineEye} from "react-icons/ai"
 import api from "../../services/api";
 import useAnotation from "../../store/storeAnotation";
 import useContext from "../../store/storeContext";
-export default function DragNDrop({ data }) {
-    const [list, setList] = useState(data)
+import { headers } from "../../services/auth";
+export default function DragNDrop() {
+    const [list, setList] = useState()
+
     const listSend = useAnotation((state) => state.listSend);
     const setListSend = useAnotation((state) => state.setListSend);
     const getDate = useAnotation((state) => state.getDate);
@@ -25,7 +28,7 @@ export default function DragNDrop({ data }) {
 
     useEffect(() => {
         const sendNewList = async () => {
-            await api.post('/anotation/update', { list: listSend })
+            await api.post('/anotation/update', { list: listSend },headers)
         }
         if (loading) {
             sendNewList()
@@ -34,7 +37,7 @@ export default function DragNDrop({ data }) {
     }, [listSend,loading])
 
     const handleCreateItem= async (id)=>{
-        await api.post('/anotation/createitem', {_id:id})
+        await api.post('/anotation/createitem', {_id:id},headers)
         .then(()=>{
             getData()
         })
@@ -87,11 +90,19 @@ export default function DragNDrop({ data }) {
         return 'dnd-item'
     }
     const createGroup = async () => {
-        await api.post('/anotation/store')
+        await api.post('/anotation/store',[],headers)
         .then(()=>{
             getData()
         }).catch(()=>{
             alert('Erro ao criar grupo')
+        })
+    }
+    const handleClickHiddenGroup = async(_id)=>{
+        await api.post('/anotation/hiddengroup', {_id:_id},headers)
+        .then(()=>{
+            getData()
+        }).catch(()=>{
+            alert('Erro ao ocultar grupo')
         })
     }
 
@@ -103,17 +114,25 @@ export default function DragNDrop({ data }) {
                         className="dnd-group"
                         key={grp._id}
                     >
-
+                        <div className="actions-group">
                         <h3>{grp.title}</h3>
+
+                        <AiOutlineEye onClick={()=>handleClickHiddenGroup(grp._id)}/>
+                       
+                        </div>
                         {grp.items.map((item, itemI) => {
                             return (
-                                <div className={dragging ? getStyles({ grpI, itemI }) : "dnd-item"} key={item._id}
-                                    draggable
+                                <div id={grp.hidden? "hiddenItem":null} className={dragging ? getStyles({ grpI, itemI }) : "dnd-item"} key={item._id}
+                                    
                                     onDragEnter={dragging ? (e) => handleDragEnter(e, { grpI, itemI }) : null}
-                                    onDragStart={(e) => { handleDragStart(e, { grpI, itemI }) }}
+                                    onDragStart={(e) => { if( !grp.hidden)handleDragStart(e, { grpI, itemI }) }}
+                                    draggable={!grp.hidden}
                                     onClick={()=>{
-                                        setModalContent({title:item.title,body:item.description,id:item._id,idgroup:grp._id})
-                                        setOpen()
+                                        if(!grp.hidden){
+                                            setModalContent({title:item.title,body:item.description,id:item._id,idgroup:grp._id})
+                                            setOpen()
+                                        }
+                                        
 
                                     }}
                                 >
@@ -122,7 +141,8 @@ export default function DragNDrop({ data }) {
                                 </div>
                             )
                         })}
-                        <div className="addItem" onClick={()=>handleCreateItem(grp._id)}><IoIosAddCircle /></div>
+                        
+                        <div className="addItem" onClick={()=>handleCreateItem({_id:grp._id})}><IoIosAddCircle /></div>
           
                     </div>
                    

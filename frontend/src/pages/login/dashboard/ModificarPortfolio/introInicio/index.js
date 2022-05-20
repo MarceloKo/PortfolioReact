@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../../../../../services/api";
+import { headers } from "../../../../../services/auth";
 
 export default function IntroInicio() {
     const [openIntroInicio, setOpenIntroInicio] = useState({});
@@ -28,7 +29,7 @@ export default function IntroInicio() {
             introInicio: intro.introInicio,
             introSobre: intro.introSobre
         }
-        await api.post('/details/update', data)
+        await api.post('/details/update', data,headers)
         .then(() => {
             getIntro()
             alert("Alterado com sucesso!");

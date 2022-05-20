@@ -18,6 +18,10 @@ const AnotationSchema = new mongoose.Schema({
             }
         }
     ],
+    hidden:{
+        type: Boolean,
+        default: false
+    },
 
     createdAt:{
         type: Date,

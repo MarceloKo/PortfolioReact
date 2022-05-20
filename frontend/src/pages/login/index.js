@@ -2,7 +2,7 @@ import "./style.css"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import api from "../../services/api"
-import { login } from "../../services/auth"
+import { headers, login } from "../../services/auth"
 import {BsArrowLeft} from "react-icons/bs"
 // import Alert from "../../components/alert/alert"
 export default function Login (){
@@ -10,7 +10,7 @@ export default function Login (){
     const navigate = useNavigate()
     async function handleSubmitForm(e){
         e.preventDefault()
-        await api.post('/user/authenticate',data).then(
+        await api.post('/user/authenticate',data,headers).then(
             response => { 
                 login(response.data.token,response.data.user._id,response.data.user.name)
                 navigate("/dashboard")
