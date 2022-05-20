@@ -97,6 +97,7 @@ export default function DragNDrop() {
             alert('Erro ao criar grupo')
         })
     }
+    
     const handleClickHiddenGroup = async(_id)=>{
         await api.post('/anotation/hiddengroup', {_id:_id},headers)
         .then(()=>{
