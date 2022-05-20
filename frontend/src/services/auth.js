@@ -15,5 +15,5 @@ export const logout = () => {
 }
 
 export const headers = 
-  {headers: {authorization: "Bearer " + localStorage.getItem("token")}}
+  {headers: {authorization: "Bearer " + window.localStorage.getItem("token")}}
 
