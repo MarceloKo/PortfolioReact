@@ -24,6 +24,9 @@ body{
     background: #1E1E2F;
     background-image: linear-gradient(270deg,#241a38,#140f23);
 }
+.menuDashboard a{
+    width: max-content;
+}
 .menuDashboard ul{
     display: flex;
     flex-direction: column;

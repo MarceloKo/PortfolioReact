@@ -254,7 +254,8 @@
     padding: 10px;
     font-size: 15px;
     font-weight: 500;
-    max-width: 340px;
+    max-width: 370px;
+    box-sizing: border-box;
 }
 .textareaProject:focus{
     outline: 1px solid rgba(180, 180, 180, 0.589);
