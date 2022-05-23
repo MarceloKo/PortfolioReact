@@ -22,8 +22,9 @@ routes.post('/skill/delete',authMiddleware ,skillController.delete)
 routes.get('/skill/get', skillController.get)
 routes.post('/skill/getone', skillController.getOne)
 
-routes.post('/project/store',authMiddleware ,projectController.store)
+routes.post('/project/store',authMiddleware,upload.single('arrayOfFiles'),projectController.store)
 routes.get('/project/get', projectController.get)
+routes.post('/project/delete',authMiddleware ,projectController.delete)
 
 routes.post('/experience/store',authMiddleware, experienceController.store)
 routes.post('/experience/delete',authMiddleware ,experienceController.delete)

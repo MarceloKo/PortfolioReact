@@ -1,5 +1,6 @@
 import Experience from "./experience";
 import IntroInicio from "./introInicio/index.js";
+import Project from "./project";
 import Skills from "./skills";
 import "./style.css"
 export default function AlterarPortfolio(){
@@ -14,6 +15,9 @@ export default function AlterarPortfolio(){
 
                 <li>
                    <Skills/>
+                </li>
+                <li>
+                    <Project/>
                 </li>
                 <li>
                   <IntroInicio/>

@@ -3,6 +3,7 @@ import image from '../../assets/profile-pic2.png'
 import './style.css';
 import '../../global.css'
 import useDetails from "../../store/storeDetails";
+import { Link } from "react-router-dom";
 
 export default function Sobre() {
   const introSobre = useDetails((state) => state.introSobre);
@@ -10,13 +11,13 @@ export default function Sobre() {
   const experiencia = useDetails((state) => state.experiencia);
   return (
     <>
-        <section id="about" className="container-content">
+        <section id="about" className="container-content animate__animated animate__fadeIn animate__faster">
             <div id="aboutme">
               <h1>Saiba quem <span>eu sou</span></h1>
               <p>Meu nome é Marcelo Kohlhase de Cuiabá - MT<br/>
               {introSobre ? introSobre : <>Carregando...</>}
               </p>
-              <Buttom style={{width:'150px'}}>Projetos</Buttom>
+              <Link to={'/projetos'}><Buttom style={{width:'150px'}}>Projetos</Buttom></Link>
             </div>
     
             
@@ -24,7 +25,7 @@ export default function Sobre() {
               <img src={image} alt="banner"/>
             </div> 
         </section>
-        <section id="aboutme" className="container-content">
+        <section id="aboutme" className="container-content animate__animated animate__fadeIn animate__fast">
           <center><h1><span>Skills</span> Profissional</h1></center>
           <div id="container-skill">
             <ul>
@@ -36,7 +37,7 @@ export default function Sobre() {
           </div>
         </section>
 
-        <section id="aboutme" className="container-content">
+        <section id="aboutme" className="container-content animate__animated animate__fadeIn">
           <center><h1><span>Experiência</span> Profissional</h1></center>
           <div id="container-experience">
             <ul>

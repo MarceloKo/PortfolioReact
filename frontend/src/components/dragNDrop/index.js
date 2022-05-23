@@ -108,11 +108,11 @@ export default function DragNDrop() {
     }
 
     return (
-        <div className="drag-n-drop">
+        <div className="drag-n-drop animate__animated animate__fadeInDown animate__faster">
             {list &&
                 list.map((grp, grpI) => (
                     <div
-                        className="dnd-group"
+                        className="dnd-group "
                         key={grp._id}
                     >
                         <div className="actions-group">

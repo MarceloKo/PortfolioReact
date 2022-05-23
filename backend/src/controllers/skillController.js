@@ -19,7 +19,7 @@ module.exports = {
                 })
             }
 
-            const image = await Cloudinary.upload(req.file.path, `storage/user/`)
+            const image = await Cloudinary.upload(req.file.path, `storage/user/skills/`)
       
             const response = await Skill.create({language,imgUrl:image.url});
             await Details.findOneAndUpdate({_id:'627048f079de3066e4ad8dec'},{$push:{skills:response._id}})

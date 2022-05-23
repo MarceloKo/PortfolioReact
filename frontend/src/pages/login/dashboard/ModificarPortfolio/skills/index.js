@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { MdPhotoCamera } from "react-icons/md"
+import Loading from "../../../../../components/loading";
 import api from "../../../../../services/api";
 
 export default function Skills() {
@@ -57,13 +58,19 @@ export default function Skills() {
         if (!e.target.select.value) {
             return alert("Selecione uma skill para excluir!")
         }
-        await api.post('/skill/delete', { id: e.target.select.value },{headers: {authorization: 'Bearer ' + localStorage.getItem("token")}})
+        if(!isLoading){
+            setIsLoading(true)
+            await api.post('/skill/delete', { id: e.target.select.value },{headers: {authorization: 'Bearer ' + localStorage.getItem("token")}})
             .then(() => {
                 alert("Skill excluida com sucesso!")
+                setIsLoading(false)
                 getApiSkills()
             }).catch((error) => {
                 alert(error.response.data.error)
+                setIsLoading(false)
             })
+        }
+        
     }
     useEffect(() => {
         getApiSkills();
@@ -77,26 +84,26 @@ export default function Skills() {
                 <button onClick={() => { if (openSkill.skillExc) { setOpenSkill({ skillExc: false }) } else { setOpenSkill({ skillExc: true }) } }}>Excluir</button>
             </div>
             {openSkill.skillAdd &&
-                <div>
+                <div className="animate__animated animate__fadeInLeft animate__faster">
                     <form onSubmit={skillAdd} className="formSkill">
                         <div className="SkillBox">
                             <input type="text" name="nameSkill" placeholder="Nome da Skill" />
                             <label htmlFor="fileSkill"><MdPhotoCamera />{file ? 'Alterar foto' : 'Adicionar foto'}</label>
                             <p style={{ fontSize: '12px', marginTop: '-5px' }}>{file && file.name}</p>
                             <input type="file" name="fileSkill" id="fileSkill" placeholder="Imagem da Skill" onChange={(e) => setFile(e.target.files[0])} />
-                            <button type="submit" disabled={isLoading}>{isLoading? "Enviando..." : "Adicionar"}</button>
+                            <button type="submit" disabled={isLoading}>{isLoading? <Loading/> : "Adicionar"}</button>
 
                         </div>
 
                     </form>
                 </div>}
             {openSkill.skillExc &&
-                <form className="formExpAdd" onSubmit={sendExcluirSkill}>
+                <form className="formExpAdd animate__animated animate__fadeInLeft animate__faster" onSubmit={sendExcluirSkill}>
                     <select name="select">
                         <option value="">Selecione uma experiência</option>
                         {Skills.map(skill => <option value={skill.id} key={skill.id}>{skill.value}</option>)}
                     </select>
-                    <button type="submit">Excluir</button>
+                    <button type="submit">{isLoading? <Loading/>:'Excluir'}</button>
 
                 </form>}
         </>

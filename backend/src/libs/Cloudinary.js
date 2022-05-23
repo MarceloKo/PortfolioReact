@@ -10,7 +10,7 @@ class Cloudinary {
 		})
 	}
 
-	async upload(file, fileName, path) {
+	async upload(file, path) {
 		return new Promise((resolve, reject) => {
 			this.cloudinary.uploader.upload(file, { folder: path }, (err, url) => {
 				if (err) return reject(err)

@@ -4,7 +4,7 @@ export default function Projetos (){
     const projetos = useDetails((state) => state.projetos)
     return(
         <>
-        <section id="section" className='container-content'>
+        <section id="section" className='container-content animate__animated animate__fadeIn animate__faster'>
             <div id="headerproject">
                 <h1>Projetos</h1>
                 <p>Todos projetos realizados no decorrer da minha trajetória.</p>

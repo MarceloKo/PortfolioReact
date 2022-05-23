@@ -1,6 +1,15 @@
 body{
     margin: 0;
 }
+a{
+	width: min-content;
+}
+a:active{
+	color: transparent;
+}
+a:visited{
+	color: #512F83;
+}
 
 #sectionintro{
     display: flex;
