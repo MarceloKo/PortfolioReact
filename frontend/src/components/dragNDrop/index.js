@@ -107,8 +107,12 @@ export default function DragNDrop() {
         })
     }
 
+ 
+
+
     return (
-        <div className="drag-n-drop animate__animated animate__fadeInDown animate__faster">
+        <div className="drag-n-drop animate__animated animate__fadeInDown animate__faster" >
+             {/* {handleMouseDown()} */}
             {list &&
                 list.map((grp, grpI) => (
                     <div
@@ -117,7 +121,7 @@ export default function DragNDrop() {
                     >
                         <div className="actions-group">
                         <h3>{grp.title}</h3>
-
+                       
                         <AiOutlineEye onClick={()=>handleClickHiddenGroup(grp._id)}/>
                        
                         </div>

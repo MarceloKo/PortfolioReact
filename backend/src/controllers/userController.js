@@ -59,7 +59,7 @@ module.exports= {
             user.password = undefined;
         
             const token = jwt.sign({id:user._id},authConfig.secret,{
-                expiresIn:86400
+                expiresIn:3600
             })
             res.json({user,token});
 

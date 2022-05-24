@@ -13,8 +13,8 @@ const anotationController = require('../controllers/anotationController')
 
 routes.get('/session/verify', authMiddleware, sessionController.verify)
 
-routes.post('/user/store' ,authMiddleware,UserController.store)
-routes.get('/user/get', UserController.get)
+// routes.post('/user/store' ,authMiddleware,UserController.store)
+// routes.get('/user/get', UserController.get)
 routes.post('/user/authenticate', UserController.authenticate)
 
 routes.post('/skill/store',authMiddleware ,upload.single('arrayOfFiles') ,skillController.store)

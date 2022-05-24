@@ -52,7 +52,7 @@ export default function Experience() {
             description: e.target.description.value,
         }
         if (!data.occupation || !data.company || !data.contract || !data.dateInitial || !data.dateEnd || !data.description) {
-            alert("Preencha todos os campos!");
+            return alert("Preencha todos os campos!");
         }
         if(!loading){
             setLoading(true)
@@ -103,7 +103,8 @@ export default function Experience() {
         e.preventDefault()
 
         if (!getExpAlt.occupation || !getExpAlt.company || !getExpAlt.contract || !getExpAlt.dateInitial || !getExpAlt.dateEnd || !getExpAlt.description) {
-            alert("Preencha todos os campos!");
+            return alert("Preencha todos os campos!");
+             
         }
         if(!loading){
             setLoading(true)

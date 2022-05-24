@@ -14,7 +14,7 @@ a:visited{
 #sectionintro{
     display: flex;
     width: 100%;
-    height: calc(100vh - 300px);
+    min-height: calc(100vh - 300px);
     align-items: center;
 }
 

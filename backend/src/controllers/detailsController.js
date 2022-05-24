@@ -17,16 +17,21 @@ module.exports= {
             const Detailss = await Details.find().populate([
                 {
                     path:'skills',
+                    select:'-_id -__v -createdAt'
                 },
                 {
                     path:'experience',
+                    select:'-_id -__v -createdAt'
+
                 },
                 {
                     path:'projects',
+                    select:'-_id -__v -createdAt'
+
                 }
                 
             ]
-            ).select('-__v  -createdAt');
+            ).select('-__v  -createdAt -_id');
            
             res.status(200).json(Detailss);
          }
