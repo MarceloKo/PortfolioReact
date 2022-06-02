@@ -1,5 +1,6 @@
 import './style.css'
 import useDetails from '../../store/storeDetails'
+import Loading from '../../components/loading'
 export default function Projetos (){
     const projetos = useDetails((state) => state.projetos)
     return(
@@ -18,7 +19,7 @@ export default function Projetos (){
                             <img src={projeto.imgUrl} alt={projeto.title}/>
                             <h2>{projeto.title}</h2>
                             <p>{projeto.description}</p>
-                        </li> ) : <p style={{margin:"auto"}}>Carregando...</p>}
+                        </li> ) : <p style={{margin:"auto"}}><Loading size="30px"/></p>}
                        
          
                        

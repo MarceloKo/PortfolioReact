@@ -53,8 +53,8 @@ section{
     border: 3px solid #5400FF;
 }
 #container-skill ul li img{
-    width: 60px;
-    height: 60px;
+    max-width: 120px;
+    max-height:120px;
     
 }
 #container-skill ul li:hover{

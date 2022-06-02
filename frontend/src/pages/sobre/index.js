@@ -4,6 +4,7 @@ import './style.css';
 import '../../global.css'
 import useDetails from "../../store/storeDetails";
 import { Link } from "react-router-dom";
+import Loading from "../../components/loading";
 
 export default function Sobre() {
   const introSobre = useDetails((state) => state.introSobre);
@@ -14,9 +15,11 @@ export default function Sobre() {
         <section id="about" className="container-content animate__animated animate__fadeIn animate__faster">
             <div id="aboutme">
               <h1>Saiba quem <span>eu sou</span></h1>
-              <p>Meu nome é Marcelo Kohlhase de Cuiabá - MT<br/>
-              {introSobre ? introSobre : <>Carregando...</>}
-              </p>
+              <p>Meu nome é Marcelo Kohlhase de Cuiabá - MT<br/></p>
+              <div>{!introSobre && <Loading size="30px"/>}</div>
+              
+              <p dangerouslySetInnerHTML={ { __html: introSobre } }></p>
+
               <Link to={'/projetos'}><Buttom style={{width:'150px'}}>Projetos</Buttom></Link>
             </div>
     
@@ -30,7 +33,7 @@ export default function Sobre() {
           <div id="container-skill">
             <ul>
               
-              {skills.length > 0 ? skills.map((skill) => <li key={skill.language}><img src={skill.imgUrl} alt={skill.language}/></li> ): <p style={{margin:"auto"}}>Carregando...</p>}
+              {skills.length > 0 ? skills.map((skill) => <li key={skill.language}><img src={skill.imgUrl} alt={skill.language}/></li> ): <p style={{margin:"auto"}}><Loading size="30px"/></p>}
 
             
             </ul>
@@ -53,7 +56,7 @@ export default function Sobre() {
                 <div id="descriptionProfissional">
                   <p>{experience.description}</p>
                 </div>
-              </li>) : <p style={{margin:"auto"}}>Carregando...</p>}
+              </li>) : <p style={{margin:"auto"}}><Loading size="30px"/></p>}
              
             </ul>
           </div>

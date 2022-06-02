@@ -42,7 +42,7 @@ a:visited{
 #box{
     display: flex;
     width: 100%;
-    padding: 20px 40px 40px 40px;
+    padding: 20px 40px 20px 40px;
     box-sizing: border-box;
     background: rgba(255, 255, 255, 0.04);
     border-radius: 20px;

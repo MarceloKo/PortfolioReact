@@ -61,7 +61,8 @@ export default function Inicio() {
       <section id="sectionbox" className="container-content animate__animated animate__fadeIn">
         <h2>UMA BREVE INTRODUÇÃO SOBRE MIM</h2>
         <div id="box">
-          <p>{introInicio ? introInicio : <Loading size="30px"/>}</p>
+          <p>{!introInicio && <Loading size="30px"/>}</p>
+          <p dangerouslySetInnerHTML={ { __html: introInicio } }></p>
           
         </div>
 
