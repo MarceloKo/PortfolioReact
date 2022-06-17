@@ -6,6 +6,7 @@ import Buttom from "../../components/buttom";
 import useDetails from '../../store/storeDetails';
 import { Link } from 'react-router-dom';
 import Loading from '../../components/loading';
+
 export default function Inicio() {
   const introInicio = useDetails((state) => state.introInicio);
   return (

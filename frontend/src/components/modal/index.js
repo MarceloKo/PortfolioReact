@@ -25,17 +25,22 @@ export default function Modal() {
     useEffect(() => {
         if(!save){
             window.clearTimeout(timeoutRef.current)
-            timeoutRef.current = window.setTimeout(async () => {
+            timeoutRef.current = window.setTimeout( () => {
                 setSave(true)
-                await api.post('/anotation/updateitem', data,{headers: {authorization: 'Bearer ' + localStorage.getItem("token")}})
+                updateitem()
+            }, 2000)
+        }
+        // eslint-disable-next-line
+    }, [data])
+
+    const updateitem = async (e) => {
+        await api.post('/anotation/updateitem', data,{headers: {authorization: 'Bearer ' + localStorage.getItem("token")}})
                     .then(() => {
                         setGetDate(!getDate)
                     }).catch(() => {
                         alert('Ocorreu um erro ao salvar')
-                    })
-            }, 2000)
-        }
-    }, [data])
+        })    
+    }
 
     useEffect(() => {
         setData({ title: modalContent.title, description: modalContent.body, _id: modalContent.id, idgroup: modalContent.idgroup })
