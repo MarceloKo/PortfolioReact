@@ -24,6 +24,7 @@ h1,h2,h3,h4,p{
 #header img{
     width: 200px;
     height: 80px;
+    z-index: 999;
 }
 
 #menu {

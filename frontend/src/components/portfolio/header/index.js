@@ -38,7 +38,6 @@ export default function Header() {
             
             <img src={logo} alt='logo'/>
            
-            
             <ul id='menu'>
                     <li><Link to="/"><AiOutlineHome/>Inicio</Link></li>
                     <li><Link to="/sobre"><BsPerson size={22}/>Sobre</Link></li>
