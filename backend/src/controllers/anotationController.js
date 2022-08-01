@@ -13,11 +13,11 @@ module.exports = {
                 ]
             }
             const response = await Anotation.create(data)
-            res.status(200).json({ data: response });
+            return res.status(200).json({ data: response });
 
         } catch (error) {
 
-            res.status(400).json({ error: "Erro ao adicionar anotação!" })
+            return res.status(400).json({ error: "Erro ao adicionar anotação!" })
         }
 
     },
@@ -25,10 +25,10 @@ module.exports = {
     async get(req, res) {
         try {
             const response = await Anotation.find().select('-__v -createdAt');
-            res.status(200).json(response);
+            return res.status(200).json(response);
         }
         catch {
-            res.status(400).json({ error: "Erro ao buscar detalhes!" })
+            return res.status(400).json({ error: "Erro ao buscar detalhes!" })
         }
 
     },
@@ -43,10 +43,10 @@ module.exports = {
 
             })
 
-            res.status(200).json('Sucesso');
+            return res.status(200).json('Sucesso');
 
         } catch (error) {
-            res.status(400).json({ error: "Erro ao atualizar detalhes!" })
+            return res.status(400).json({ error: "Erro ao atualizar detalhes!" })
         }
     },
     async createItem(req, res) {
@@ -56,9 +56,9 @@ module.exports = {
                 return res.status(400).json({ error: "Informe qual grupo!" })
             }
             const response = await Anotation.findOneAndUpdate({ _id }, { $push: { items: { title: 'Novo item', description: 'descrição' } } })
-            res.status(200).json(response);
+            return res.status(200).json(response);
         } catch (error) {
-            res.status(400).json({ error: "Erro ao criar item!" })
+            return res.status(400).json({ error: "Erro ao criar item!" })
         }
     },
     async deleteItem(req, res) {
@@ -71,9 +71,9 @@ module.exports = {
             if (response.items.length == 1) {
                 await Anotation.findOneAndRemove({ _id })
             }
-            res.status(200).json({ message: "Item deletado com sucesso!" });
+            return res.status(200).json({ message: "Item deletado com sucesso!" });
         } catch (error) {
-            res.status(400).json({ error: "Erro ao deletar item!" })
+            return res.status(400).json({ error: "Erro ao deletar item!" })
         }
     },
     async updateItem(req, res) {
@@ -89,9 +89,9 @@ module.exports = {
                 return res.status(400).json({ error: "Informe a descrição!" })
             }
             await Anotation.findOneAndUpdate({ "items._id": _id }, { $set: { "items.$.title": title, "items.$.description": description } })
-            res.status(200).json({ message: "Item atualizado com sucesso!" });
+            return res.status(200).json({ message: "Item atualizado com sucesso!" });
         } catch (error) {
-            res.status(400).json({ error: "Erro ao atualizar item!" })
+            return res.status(400).json({ error: "Erro ao atualizar item!" })
         }
     },
     async hiddenGroup(req, res) {
@@ -111,7 +111,7 @@ module.exports = {
             }
             
         } catch (error) {
-            res.status(400).json({ error: "Erro ao ocultar item!" })
+            return res.status(400).json({ error: "Erro ao ocultar item!" })
         }
     }
 
