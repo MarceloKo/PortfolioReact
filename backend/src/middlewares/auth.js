@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const authConfig = require('../config/auth.json');
 const User = require('../models/User');
 module.exports = async (req, res, next) => {
     try {
@@ -16,7 +15,7 @@ module.exports = async (req, res, next) => {
             return res.status(401).json({ error: "Token mal formatado!" })
         }
 
-        jwt.verify(token, authConfig.secret, async(err, decoded) => {
+        jwt.verify(token, process.env.AUTH_SECRET, async(err, decoded) => {
             if (err) {
                 return res.status(401).json({ error: "Token inválido!" })
             }else{

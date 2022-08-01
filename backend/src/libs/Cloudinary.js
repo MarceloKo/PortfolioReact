@@ -4,9 +4,9 @@ class Cloudinary {
 	constructor() {
 		this.cloudinary = cloudinary
 		this.cloudinary.config({
-			cloud_name: 'marceloko',
-			api_key: '983947416576537',
-			api_secret: 'oej6UYpQZ5JF3TfUS9UHkG8i9T8',
+			cloud_name: process.env.CLOUD_NAME,
+			api_key: process.env.API_KEY,
+			api_secret: process.env.API_SECRET,
 		})
 	}
 
