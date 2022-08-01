@@ -13,7 +13,6 @@ section{
     flex-direction: column;
     flex: 2;
     min-width: 300px;
-    margin-right: 50px;
     
 }
 #aboutme h1{
@@ -21,12 +20,16 @@ section{
     margin: 0;
     margin-bottom: 10px;
 }
+.marginRight{
+    margin-right: 50px;
+}
 #aboutme h1 span{
     color: #8C52FF;
 
 }
 #banner{
     flex: 1;
+    
 }
 #container-skill{
     display: flex;
@@ -51,6 +54,7 @@ section{
     height:100px;
     padding: 50px;
     border: 3px solid #5400FF;
+    transition: all 0.3s ease;
 }
 #container-skill ul li img{
     max-width: 120px;
@@ -58,8 +62,8 @@ section{
     
 }
 #container-skill ul li:hover{
-    transition: all 0.3s ease;
-    transform: scale(1.01);
+    
+    transform: scale(1.05);
     -webkit-box-shadow: 0px 0px 19px 1px rgba(84,0,255,0.4); 
     box-shadow: 0px 0px 19px 1px rgba(84,0,255,0.4);
     
@@ -85,10 +89,11 @@ section{
     box-sizing: border-box;
     padding: 20px 40px;
     margin-bottom: 20px;
+    transition: all 0.3s ease;
 }
 
 #container-experience ul li:hover{
-    transition: all 0.3s ease;
+    
     -webkit-box-shadow: 0px 0px 19px 1px rgba(84,0,255,0.2); 
     box-shadow: 0px 0px 19px 1px rgba(84,0,255,0.2);
 }

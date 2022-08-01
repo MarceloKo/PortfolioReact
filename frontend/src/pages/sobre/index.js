@@ -13,7 +13,7 @@ export default function Sobre() {
   return (
     <>
         <section id="about" className="container-content animate__animated animate__fadeIn animate__faster">
-            <div id="aboutme">
+            <div id="aboutme" className="marginRight">
               <h1>Saiba quem <span>eu sou</span></h1>
               <p>Meu nome é Marcelo Kohlhase de Cuiabá - MT<br/></p>
               <div>{!introSobre && <Loading size="30px"/>}</div>

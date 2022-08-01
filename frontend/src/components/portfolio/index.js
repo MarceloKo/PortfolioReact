@@ -11,8 +11,9 @@ export default function Portfolio({children}){
             <div className="container">
             <Header/>
             {children}
-            </div>
             <Footer/>
+            </div>
+            
             
             
         </div>
