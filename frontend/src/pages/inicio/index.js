@@ -48,7 +48,7 @@ export default function Inicio() {
 
           <h3>Olá</h3>
           <h1>Eu sou o <span>Marcelo</span></h1>
-          <h3>Sou desenvolvedor junior, apaixonado por tecnologia e por programação.</h3>
+          <h3>Sou desenvolvedor pleno, apaixonado em desenvolver sistemas.</h3>
           <Link to={'/sobre'}><Buttom style={{ width: '150px' }}>Sobre mim</Buttom></Link>
         </div>
         
